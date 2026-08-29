@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import User from "./models/User.js";
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
@@ -30,6 +31,22 @@ app.get("/", (req,res) => {
         success:true,
         message: "Server is up and running...",
     });
+});
+
+app.post("/register", async (req, res) => {
+  try {
+    const user = await User.create(req.body);
+
+    res.status(201).json({
+      message: "User registered successfully",
+      user: user
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
 });
 
 const  PORT = process.env.PORT || 8080;

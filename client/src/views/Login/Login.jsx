@@ -14,11 +14,13 @@ function Login() {
         <input
           type="email"
           placeholder="Enter your email"
+           required
         />
 
         <input
           type="password"
           placeholder="Enter your password"
+           required
         />
 
         <button type="submit" className="login-button">
