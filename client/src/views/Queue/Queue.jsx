@@ -3,7 +3,7 @@ import "./Queue.css";
 function Queue() {
   return (
     <div>
-      <Queue/>
+      <h1>Queue</h1>
     </div>
   )
 }
