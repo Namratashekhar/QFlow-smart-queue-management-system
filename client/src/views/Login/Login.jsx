@@ -1,7 +1,32 @@
 import { Link } from "react-router";
 import "./Login.css";
+import { useState } from "react";
+import axios from "axios";
 
 function Login() {
+
+  const[user,setUser] = useState({
+    email:"",
+    password:""
+  });
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/login",
+        user
+      );
+
+      console.log(response.data);
+
+    } catch (error) {
+      console.log(error.response?.data || error.message);
+    }
+  };
+
+
   return (
     <div className="login-page">
 
@@ -15,15 +40,19 @@ function Login() {
           type="email"
           placeholder="Enter your email"
            required
+           value={user.email}
+           onChange={(e) => setUser({...user, email: e.target.value})}
         />
 
         <input
           type="password"
           placeholder="Enter your password"
            required
+           value={user.password}
+           onChange={(e) => setUser ({...user, password: e.target.value})}
         />
 
-        <button type="submit" className="login-button">
+        <button  className="login-button" onClick={loginUser} type="button">
           Login
         </button>
 
