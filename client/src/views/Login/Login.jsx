@@ -10,6 +10,7 @@ function Login() {
     password: ""
   });
 
+
   const loginUser = async () => {
 
     try {
@@ -21,12 +22,27 @@ function Login() {
 
       console.log(response.data);
 
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.user)
+      );
+
+      console.log(
+        "User saved in localStorage:",
+        response.data.user
+      );
+
+      window.location.href = "/";
+
     } catch (error) {
 
-      console.log(error.response?.data || error.message);
-
+      console.log(
+        error.response?.data || error.message
+      );
+      
     }
   };
+
 
   return (
     <div className="login-page">
@@ -35,6 +51,7 @@ function Login() {
 
       <p>Login to your account</p>
 
+
       <form className="login-form">
 
         <input
@@ -42,12 +59,7 @@ function Login() {
           placeholder="Enter your email"
           required
           value={user.email}
-          onChange={(e) =>
-            setUser({
-              ...user,
-              email: e.target.value
-            })
-          }
+          onChange={(e) => setUser({ ...user, email: e.target.value})}
         />
 
         <input
@@ -55,12 +67,7 @@ function Login() {
           placeholder="Enter your password"
           required
           value={user.password}
-          onChange={(e) =>
-            setUser({
-              ...user,
-              password: e.target.value
-            })
-          }
+          onChange={(e) => setUser({...user, password: e.target.value})}
         />
 
         <button
@@ -73,7 +80,9 @@ function Login() {
 
       </form>
 
+
       <p className="message">
+
         Don't have an account?{" "}
 
         <Link to="/register">
