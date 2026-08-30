@@ -5,27 +5,28 @@ import axios from "axios";
 
 function Login() {
 
-  const[user,setUser] = useState({
-    email:"",
-    password:""
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
   });
 
-  const loginUser = async (e) => {
-    e.preventDefault();
+  const loginUser = async () => {
 
     try {
+
       const response = await axios.post(
-        "http://localhost:8080/login",
+        `${import.meta.env.VITE_API_URL}/login`,
         user
       );
 
       console.log(response.data);
 
     } catch (error) {
+
       console.log(error.response?.data || error.message);
+
     }
   };
-
 
   return (
     <div className="login-page">
@@ -34,25 +35,39 @@ function Login() {
 
       <p>Login to your account</p>
 
-      <form className="login-form ">
+      <form className="login-form">
 
         <input
           type="email"
           placeholder="Enter your email"
-           required
-           value={user.email}
-           onChange={(e) => setUser({...user, email: e.target.value})}
+          required
+          value={user.email}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              email: e.target.value
+            })
+          }
         />
 
         <input
           type="password"
           placeholder="Enter your password"
-           required
-           value={user.password}
-           onChange={(e) => setUser ({...user, password: e.target.value})}
+          required
+          value={user.password}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              password: e.target.value
+            })
+          }
         />
 
-        <button  className="login-button" onClick={loginUser} type="button">
+        <button
+          className="login-button"
+          onClick={loginUser}
+          type="button"
+        >
           Login
         </button>
 
@@ -60,9 +75,11 @@ function Login() {
 
       <p className="message">
         Don't have an account?{" "}
+
         <Link to="/register">
           Sign Up
         </Link>
+
       </p>
 
     </div>
