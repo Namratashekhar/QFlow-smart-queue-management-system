@@ -14,9 +14,11 @@ const postRegister = async (req, res) => {
       password: md5(password)
     });
 
+    const safeUser = await User.findById(user._id).select("-password");
+
     res.status(201).json({
       message: "User registered successfully",
-      user: user
+      user: safeUser
     });
 
   } catch (error) {
@@ -49,9 +51,11 @@ const postLogin = async (req, res) => {
       });
     }
 
+    const safeUser = await User.findById(user._id).select("-password");
+
     res.status(200).json({
       message: "Login successful",
-      user: user
+      user: safeUser
     });
 
   } catch (error) {
