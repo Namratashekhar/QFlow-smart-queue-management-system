@@ -1,8 +1,18 @@
 import User from "../models/User.js";
+import md5 from "md5";
+
 
 const postRegister = async (req, res) => {
   try {
-    const user = await User.create(req.body);
+
+    const { name, email, tel, password } = req.body;
+
+    const user = await User.create({
+      name,
+      email,
+      tel,
+      password: md5(password)
+    });
 
     res.status(201).json({
       message: "User registered successfully",
@@ -10,6 +20,9 @@ const postRegister = async (req, res) => {
     });
 
   } catch (error) {
+
+    console.error("REGISTER ERROR:", error.message);
+
     res.status(500).json({
       message: error.message
     });
@@ -19,6 +32,7 @@ const postRegister = async (req, res) => {
 
 const postLogin = async (req, res) => {
   try {
+
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
@@ -29,7 +43,7 @@ const postLogin = async (req, res) => {
       });
     }
 
-    if (user.password !== password) {
+    if (user.password !== md5(password)) {
       return res.status(401).json({
         message: "Invalid password"
       });
@@ -41,10 +55,14 @@ const postLogin = async (req, res) => {
     });
 
   } catch (error) {
+
+    console.error("LOGIN ERROR:", error.message);
+
     res.status(500).json({
       message: error.message
     });
   }
 };
+
 
 export { postLogin, postRegister };

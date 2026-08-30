@@ -18,38 +18,29 @@ app.use(cors());
 
 const connectDB = async () => {
   try {
-
     await mongoose.connect(process.env.MONGODB_URL);
 
     console.log("MongoDB connected");
-
   } catch (error) {
-
     console.error("MongoDB connection error:", error.message);
-
   }
 };
 
-
-// Home Route
 app.get("/", (req, res) => {
-
   res.json({
     success: true,
     message: "Server is up and running..."
   });
-
 });
 
 app.post("/register", postRegister);
+
 app.post("/login", postLogin);
 
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
-
   console.log(`Server is running on port ${PORT}`);
-
 });
 
 connectDB();
