@@ -1,15 +1,11 @@
 import User from "../models/User.js";
 import md5 from "md5";
 
-
-// REGISTER
 const postRegister = async (req, res) => {
   try {
 
     const { name, email, tel, password } = req.body;
 
-
-    // Name validation
     const nameRegex = /^[A-Za-z ]{3,30}$/;
 
     if (!nameRegex.test(name)) {
@@ -18,8 +14,6 @@ const postRegister = async (req, res) => {
       });
     }
 
-
-    // Email validation
     const emailRegex =
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -29,8 +23,6 @@ const postRegister = async (req, res) => {
       });
     }
 
-
-    // Password validation
     const passwordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -41,8 +33,6 @@ const postRegister = async (req, res) => {
       });
     }
 
-
-    // Check existing user by email
     const existingUser = await User.findOne({ email,password: md5(password) });
 
     if (existingUser) {
@@ -51,8 +41,6 @@ const postRegister = async (req, res) => {
       });
     }
 
-
-    // Create user
     const user = await User.create({
       name,
       email,
@@ -60,8 +48,6 @@ const postRegister = async (req, res) => {
       password: md5(password)
     });
 
-
-    // Remove password from response
     const safeUser = await User.findById(user._id)
       .select("-password");
 
@@ -83,15 +69,11 @@ const postRegister = async (req, res) => {
   }
 };
 
-
-// LOGIN
 const postLogin = async (req, res) => {
   try {
 
     const { email, password } = req.body;
 
-
-    // Email validation
     const emailRegex =
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -111,16 +93,12 @@ const postLogin = async (req, res) => {
       });
     }
 
-
-    // Check password
     if (user.password !== md5(password)) {
       return res.status(401).json({
         message: "Invalid password"
       });
     }
 
-
-    // Remove password from response
     const safeUser = await User.findById(user._id)
       .select("-password");
 
