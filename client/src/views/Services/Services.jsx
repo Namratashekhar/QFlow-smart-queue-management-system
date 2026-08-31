@@ -32,7 +32,7 @@ function Services() {
       name: "Bank",
       description: "Join banking service queues and avoid long waiting.",
       image: bank
-    }
+    },
   ];
 
 
@@ -78,13 +78,10 @@ function Services() {
               </Link>
 
             </div>
-
           </div>
 
         ))}
-
       </section>
-
     </div>
   );
 }
