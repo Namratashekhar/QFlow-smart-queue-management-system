@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import "./Services.css";
 
 import hospital from "./hospital.jpg";
-import restaurant from "./resturant.jpg";
+import restaurant from "./restaurant.jpg";
 import salon from "./salon.jpg";
 import bank from "./bank.jpg";
 
