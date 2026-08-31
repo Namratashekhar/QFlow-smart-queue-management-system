@@ -49,7 +49,7 @@ const postRegister = async (req, res) => {
     });
 
     const safeUser = await User.findById(user._id)
-      .select("-password");
+      .select("_id name email");
 
 
     res.status(201).json({
@@ -100,7 +100,7 @@ const postLogin = async (req, res) => {
     }
 
     const safeUser = await User.findById(user._id)
-      .select("-password");
+      .select("_id name email");
 
 
     res.status(200).json({
