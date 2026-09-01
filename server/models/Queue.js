@@ -1,39 +1,50 @@
-import { model, Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const queueSchema = new Schema({
+const queueSchema = new mongoose.Schema(
+  {
     user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
     },
 
     service: {
-        type: Schema.Types.ObjectId,
-        ref: "Service",
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Service",
+      required: true
     },
 
-    tokenNumber: {
-        type: Number,
-        required: true
+    queueNumber: {
+      type: Number,
+      required: true
+    },
+
+    currentlyServing: {
+      type: Number,
+      default: 0
+    },
+
+    peopleAhead: {
+      type: Number,
+      default: 0
+    },
+
+    estimatedWaitTime: {
+      type: Number,
+      default: 0
     },
 
     status: {
-        type: String,
-        enum: ["waiting", "serving", "completed"],
-        default: "waiting"
-    },
-
-    joinedAt: {
-        type: Date,
-        default: Date.now
-    }},
-    
-    {
-        timestamps:true,
+      type: String,
+      enum: ["waiting", "serving", "completed", "cancelled"],
+      default: "waiting"
     }
+  },
+  {
+    timestamps: true
+  }
 );
 
-const Queue = model("Queue", queueSchema);
+const Queue = mongoose.model("Queue", queueSchema);
 
 export default Queue;
