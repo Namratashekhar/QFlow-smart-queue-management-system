@@ -1,46 +1,68 @@
 import Queue from "../models/Queue.js";
-import Services from "../models/Services.js";
 
+const services = {
+  1: "Hospital",
+  2: "Restaurant",
+  3: "Salon",
+  4: "Bank"
+};
+
+
+// JOIN QUEUE
 const postQueue = async (req, res) => {
   try {
-    const { user, service } = req.body;
-    if (!user || !service) {
+
+    const { user, serviceId } = req.body;
+
+    if (!user || !serviceId) {
       return res.status(400).json({
-        message: "User and service are required"
+        message: "User and serviceId are required"
       });
     }
 
-    const serviceData = await Services.findById(service);
-    if (!serviceData) {
+
+    const serviceName = services[serviceId];
+
+    if (!serviceName) {
       return res.status(404).json({
         message: "Service not found"
       });
     }
 
+
+    // Find last queue number for this service
     const lastQueue = await Queue.findOne({
-      service: service
+      serviceId: serviceId,
+      status: {
+        $in: ["waiting", "serving"]
+      }
     }).sort({
       queueNumber: -1
     });
+
 
     const queueNumber = lastQueue
       ? lastQueue.queueNumber + 1
       : 1;
 
-    const currentlyServing =
-      serviceData.currentlyServing || 0;
+
+    const currentlyServing = 0;
+
 
     const peopleAhead = Math.max(
       queueNumber - currentlyServing - 1,
       0
     );
 
+
     const estimatedWaitTime =
       peopleAhead * 5;
 
-      const queue = await Queue.create({
+
+    const queue = await Queue.create({
       user,
-      service,
+      serviceId,
+      serviceName,
       queueNumber,
       currentlyServing,
       peopleAhead,
@@ -48,20 +70,12 @@ const postQueue = async (req, res) => {
       status: "waiting"
     });
 
-    const queueData = await Queue.findById(queue._id)
-      .populate(
-        "service",
-        "name description image currentlyServing"
-      )
-      .populate(
-        "user",
-        "name email tel"
-      );
 
     res.status(201).json({
       message: "Queue joined successfully",
-      queue: queueData
+      queue
     });
+
 
   } catch (error) {
 
@@ -74,25 +88,23 @@ const postQueue = async (req, res) => {
   }
 };
 
+
+// GET MY QUEUE
 const getMyQueue = async (req, res) => {
   try {
 
     const { userId } = req.params;
+
 
     const queue = await Queue.findOne({
       user: userId,
       status: {
         $in: ["waiting", "serving"]
       }
-    })
-      .populate(
-        "service",
-        "name description image currentlyServing"
-      )
-      .populate(
-        "user",
-        "name email tel"
-      );
+    }).sort({
+      createdAt: -1
+    });
+
 
     if (!queue) {
       return res.status(404).json({
@@ -100,10 +112,12 @@ const getMyQueue = async (req, res) => {
       });
     }
 
+
     res.status(200).json({
       message: "Queue details fetched successfully",
       queue
     });
+
 
   } catch (error) {
 
@@ -116,10 +130,14 @@ const getMyQueue = async (req, res) => {
   }
 };
 
+
+// CANCEL QUEUE
 const cancelQueue = async (req, res) => {
   try {
 
     const { queueId } = req.params;
+
+
     const queue = await Queue.findByIdAndUpdate(
       queueId,
       {
@@ -130,16 +148,19 @@ const cancelQueue = async (req, res) => {
       }
     );
 
+
     if (!queue) {
       return res.status(404).json({
         message: "Queue not found"
       });
     }
 
+
     res.status(200).json({
       message: "Queue cancelled successfully",
       queue
     });
+
 
   } catch (error) {
 
@@ -152,4 +173,9 @@ const cancelQueue = async (req, res) => {
   }
 };
 
-export { postQueue, getMyQueue, cancelQueue};
+
+export {
+  postQueue,
+  getMyQueue,
+  cancelQueue
+};
