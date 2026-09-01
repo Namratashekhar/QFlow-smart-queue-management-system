@@ -6,13 +6,10 @@ import "./Queue.css";
 function Queue() {
 
   const { serviceId } = useParams();
-
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-
   const [message, setMessage] = useState("");
-
 
   const joinQueue = async () => {
 
@@ -21,11 +18,9 @@ function Queue() {
       setLoading(true);
       setMessage("");
 
-
       const user = JSON.parse(
         localStorage.getItem("user")
       );
-
 
       if (!user) {
 
@@ -36,7 +31,6 @@ function Queue() {
         return;
       }
 
-
       const response = await axios.post(
         `${import.meta.env.VITE_API_URL}/queue/${service._id}`,
         {
@@ -45,20 +39,14 @@ function Queue() {
         }
       );
 
-
       console.log(response.data);
 
-
-      // Save queue
       localStorage.setItem(
         "queue",
         JSON.stringify(response.data.queue)
       );
 
-
-      // Go to My Queue
       navigate("/myqueue");
-
 
     } catch (error) {
 
@@ -78,18 +66,11 @@ function Queue() {
     }
   };
 
-
   return (
     <div className="queue-page">
-
       <div className="queue-container">
-
         <h1>Join Queue</h1>
-
-        <p>
-          Ready to join this service queue?
-        </p>
-
+        <p> Ready to join this service queue?</p>
 
         {message && (
           <p className="queue-message">
@@ -97,19 +78,16 @@ function Queue() {
           </p>
         )}
 
-
         <button
           className="join-queue-button"
           onClick={joinQueue}
-          disabled={loading}
-        >
+          disabled={loading}>
           {loading
             ? "Joining..."
             : "Join Queue"}
         </button>
 
       </div>
-
     </div>
   );
 }

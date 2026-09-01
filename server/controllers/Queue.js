@@ -1,61 +1,44 @@
 import Queue from "../models/Queue.js";
 import Services from "../models/Services.js";
 
-
-// JOIN QUEUE
 const postQueue = async (req, res) => {
   try {
-
     const { user, service } = req.body;
-
-
     if (!user || !service) {
       return res.status(400).json({
         message: "User and service are required"
       });
     }
 
-
-    // Find service
     const serviceData = await Services.findById(service);
-
-
     if (!serviceData) {
       return res.status(404).json({
         message: "Service not found"
       });
     }
 
-
-    // Find last queue number
     const lastQueue = await Queue.findOne({
       service: service
     }).sort({
       queueNumber: -1
     });
 
-
     const queueNumber = lastQueue
       ? lastQueue.queueNumber + 1
       : 1;
 
-
     const currentlyServing =
       serviceData.currentlyServing || 0;
-
 
     const peopleAhead = Math.max(
       queueNumber - currentlyServing - 1,
       0
     );
 
-
-    // 5 minutes per person
     const estimatedWaitTime =
       peopleAhead * 5;
 
-
-    const queue = await Queue.create({
+      const queue = await Queue.create({
       user,
       service,
       queueNumber,
@@ -64,7 +47,6 @@ const postQueue = async (req, res) => {
       estimatedWaitTime,
       status: "waiting"
     });
-
 
     const queueData = await Queue.findById(queue._id)
       .populate(
@@ -76,12 +58,10 @@ const postQueue = async (req, res) => {
         "name email tel"
       );
 
-
     res.status(201).json({
       message: "Queue joined successfully",
       queue: queueData
     });
-
 
   } catch (error) {
 
@@ -94,13 +74,10 @@ const postQueue = async (req, res) => {
   }
 };
 
-
-// GET MY QUEUE
 const getMyQueue = async (req, res) => {
   try {
 
     const { userId } = req.params;
-
 
     const queue = await Queue.findOne({
       user: userId,
@@ -117,19 +94,16 @@ const getMyQueue = async (req, res) => {
         "name email tel"
       );
 
-
     if (!queue) {
       return res.status(404).json({
         message: "No active queue found"
       });
     }
 
-
     res.status(200).json({
       message: "Queue details fetched successfully",
       queue
     });
-
 
   } catch (error) {
 
@@ -142,14 +116,10 @@ const getMyQueue = async (req, res) => {
   }
 };
 
-
-// CANCEL QUEUE
 const cancelQueue = async (req, res) => {
   try {
 
     const { queueId } = req.params;
-
-
     const queue = await Queue.findByIdAndUpdate(
       queueId,
       {
@@ -160,19 +130,16 @@ const cancelQueue = async (req, res) => {
       }
     );
 
-
     if (!queue) {
       return res.status(404).json({
         message: "Queue not found"
       });
     }
 
-
     res.status(200).json({
       message: "Queue cancelled successfully",
       queue
     });
-
 
   } catch (error) {
 
@@ -185,9 +152,4 @@ const cancelQueue = async (req, res) => {
   }
 };
 
-
-export {
-  postQueue,
-  getMyQueue,
-  cancelQueue
-};
+export { postQueue, getMyQueue, cancelQueue};

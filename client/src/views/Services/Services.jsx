@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import "./Services.css";
-
 import hospital from "./hospital.jpg";
 import restaurant from "./restaurant.jpg";
 import salon from "./salon.jpg";
@@ -35,7 +34,6 @@ function Services() {
     },
   ];
 
-
   return (
     <div className="services-page">
 
@@ -48,7 +46,6 @@ function Services() {
         </p>
 
       </section>
-
 
       <section className="services-container">
 
@@ -71,11 +68,10 @@ function Services() {
               </p>
 
               <Link
-  to={`/queue/${service._id}`}
-  className="join-queue-btn"
->
-  Join Queue
-</Link>
+               to={`/queue/${service._id}`}
+               className="join-queue-btn">
+               Join Queue
+            </Link>
             </div>
           </div>
 

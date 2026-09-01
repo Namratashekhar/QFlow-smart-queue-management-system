@@ -1,7 +1,5 @@
 import Services from "../models/Services.js";
 
-
-// CREATE SERVICE
 const postService = async (req, res) => {
   try {
 
@@ -23,8 +21,6 @@ const postService = async (req, res) => {
   }
 };
 
-
-// GET ALL SERVICES
 const getServices = async (req, res) => {
   try {
 
@@ -48,8 +44,4 @@ const getServices = async (req, res) => {
   }
 };
 
-
-export {
-  postService,
-  getServices
-};
+export {postService,getServices};
