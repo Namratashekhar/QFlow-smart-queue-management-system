@@ -10,7 +10,7 @@ const queueSchema = new mongoose.Schema(
 
     service: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Service",
+      ref: "Services",
       required: true
     },
 
@@ -36,7 +36,12 @@ const queueSchema = new mongoose.Schema(
 
     status: {
       type: String,
-      enum: ["waiting", "serving", "completed", "cancelled"],
+      enum: [
+        "waiting",
+        "serving",
+        "completed",
+        "cancelled"
+      ],
       default: "waiting"
     }
   },

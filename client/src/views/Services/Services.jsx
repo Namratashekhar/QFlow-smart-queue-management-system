@@ -71,12 +71,11 @@ function Services() {
               </p>
 
               <Link
-                to={`/queue/${service.id}`}
-                className="join-queue-btn"
-              >
-                Join Queue
-              </Link>
-
+  to={`/queue/${service._id}`}
+  className="join-queue-btn"
+>
+  Join Queue
+</Link>
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 
 import { postLogin, postRegister } from "./controllers/User.js";
 import { postService, getServices } from "./controllers/Services.js";
+import {  postQueue, getMyQueue, cancelQueue} from "./controllers/Queue.js";
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
@@ -38,6 +39,10 @@ app.post("/login", postLogin);
 
 app.post("/services", postService);
 app.get("/services", getServices);
+
+app.post("/queue", postQueue);
+app.get("/queue/:userId", getMyQueue);
+app.put("/queue/:queueId/cancel", cancelQueue);
 
 const PORT = process.env.PORT || 8080;
 
