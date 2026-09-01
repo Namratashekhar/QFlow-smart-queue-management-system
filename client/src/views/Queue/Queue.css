@@ -1,0 +1,50 @@
+.queue-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7fffc;
+}
+
+.queue-container {
+  width: 450px;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.queue-container h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.queue-container p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.join-queue-button {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #05e39c;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.join-queue-button:hover {
+  background-color: #03c987;
+}
+
+.join-queue-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.queue-message {
+  color: red;
+}
