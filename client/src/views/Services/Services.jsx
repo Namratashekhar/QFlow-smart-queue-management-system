@@ -5,7 +5,7 @@ import hospital from "./hospital.jpg";
 import restaurant from "./restaurant.jpg";
 import salon from "./salon.jpg";
 import bank from "./bank.jpg";
-
+import Navbar from "../../components/Navbar/Navbar";
 
 function Services() {
 
@@ -46,6 +46,7 @@ function Services() {
 
   return (
     <div className="services-page">
+      <Navbar />
 
       <section className="services-header">
 

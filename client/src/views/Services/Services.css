@@ -1,6 +1,5 @@
 .services-page {
   min-height: 100vh;
-  padding: 50px 8%;
   background-color: #f7fffc;
 }
 
@@ -28,6 +27,7 @@
 
 .service-card {
   background-color: white;
+  margin: 0px 10px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
