@@ -20,9 +20,7 @@ function MyQueue() {
           return;
         }
 
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/myqueue/${user._id}`
-        );
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/queue/${user._id}`);
 
         console.log("My Queue Response:", response.data);
 
