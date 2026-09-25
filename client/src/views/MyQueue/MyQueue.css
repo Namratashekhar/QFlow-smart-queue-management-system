@@ -1,153 +1,212 @@
 .myqueue-page {
   min-height: 100vh;
-  padding: 40px 20px;
-  background: #f5fafa;
+  background-color: #f5faf8;
 }
+
+/* Container */
 
 .myqueue-container {
-  max-width: 700px;
+  width: 90%;
+  max-width: 900px;
   margin: auto;
+  padding: 50px 0;
 }
 
-.myqueue-container h1 {
+.myqueue-container > h1 {
   text-align: center;
+  color: #12372a;
   margin-bottom: 30px;
-  color: #222;
 }
-
-
-/* Queue Card */
-
-.queue-card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.queue-card > h2 {
-  text-align: center;
-  color: #05e39c;
-  margin-bottom: 25px;
-}
-
-
-/* Queue Number */
-
-.queue-number {
-  text-align: center;
-  background: #eafff7;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-}
-
-.queue-number p {
-  margin: 0;
-  color: #666;
-}
-
-.queue-number h3 {
-  margin: 10px 0 0;
-  font-size: 60px;
-  color: #05e39c;
-}
-
-
-/* Queue Details */
-
-.queue-details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-.detail-box {
-  padding: 18px;
-  background: #f7f7f7;
-  border-radius: 10px;
-}
-
-.detail-box span {
-  display: block;
-  color: #777;
-  margin-bottom: 8px;
-}
-
-.detail-box strong {
-  font-size: 20px;
-  color: #222;
-}
-
-.status {
-  text-transform: capitalize;
-  color: #05e39c !important;
-}
-
-
-/* Back Button */
-
-.back-button,
-.no-queue button {
-  display: block;
-  margin: 25px auto 0;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  background: #05e39c;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.back-button:hover,
-.no-queue button:hover {
-  background: #04c98b;
-}
-
-
-/* No Queue */
-
-.no-queue {
-  background: white;
-  padding: 50px 20px;
-  text-align: center;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
-
-.no-queue h2 {
-  color: #555;
-}
-
-.no-queue p {
-  color: #777;
-}
-
 
 /* Loading */
 
 .loading {
   text-align: center;
-  margin-top: 80px;
-  color: #666;
+  color: #555;
 }
 
+/* Queue Card */
+
+.queue-card {
+  background-color: white;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.queue-card > h2 {
+  text-align: center;
+
+  color: #05c98a;
+
+  margin-bottom: 25px;
+}
+
+/* Queue Number */
+
+.queue-number {
+  text-align: center;
+
+  background-color: #f5faf8;
+
+  padding: 20px;
+
+  border-radius: 8px;
+
+  margin-bottom: 25px;
+}
+
+.queue-number p {
+  margin: 0 0 8px;
+
+  color: #555;
+}
+
+.queue-number h3 {
+  margin: 0;
+
+  font-size: 45px;
+
+  color: #12372a;
+}
+
+/* Details */
+
+.queue-details {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.detail-box {
+  padding: 18px;
+
+  background-color: #f5faf8;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.detail-box span {
+  display: block;
+
+  color: #666;
+
+  font-size: 14px;
+
+  margin-bottom: 8px;
+}
+
+.detail-box strong {
+  color: #12372a;
+
+  font-size: 20px;
+}
+
+/* Status */
+
+.status {
+  color: #05c98a !important;
+
+  text-transform: capitalize;
+}
+
+/* Back Button */
+
+.back-button {
+  display: block;
+
+  margin: auto;
+
+  border: none;
+
+  background-color: #12372a;
+
+  color: white;
+
+  padding: 11px 25px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background-color: #05e39c;
+}
+
+/* No Queue */
+
+.no-queue {
+  background-color: white;
+
+  padding: 50px 30px;
+
+  text-align: center;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+}
+
+.no-queue h2 {
+  color: #12372a;
+}
+
+.no-queue p {
+  color: #666;
+
+  margin-bottom: 25px;
+}
+
+.no-queue button {
+  border: none;
+
+  background-color: #05e39c;
+
+  color: white;
+
+  padding: 11px 22px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.no-queue button:hover {
+  background-color: #04c98b;
+}
 
 /* Mobile */
 
 @media (max-width: 600px) {
-
-  .queue-details {
-    grid-template-columns: 1fr;
+  .myqueue-container {
+    padding: 35px 0;
   }
 
   .queue-card {
     padding: 20px;
   }
 
-  .queue-number h3 {
-    font-size: 45px;
+  .queue-details {
+    grid-template-columns: 1fr;
   }
 
+  .queue-number h3 {
+    font-size: 38px;
+  }
 }
