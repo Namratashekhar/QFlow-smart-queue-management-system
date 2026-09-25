@@ -5,7 +5,7 @@ import "./Queue.css";
 
 function Queue() {
 
-  const { serviceId } = useParams();a
+  const { serviceId } = useParams();
 
   const navigate = useNavigate();
 
