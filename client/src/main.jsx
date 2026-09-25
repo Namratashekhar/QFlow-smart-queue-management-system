@@ -4,6 +4,7 @@ import {BrowserRouter,Routes,Route} from "react-router";
 import Home from "./views/Home/Home";
 import About from "./views/About/About";
 import Services from "./views/Services/Services";
+import MyQueue from "./views/MyQueue/MyQueue";
 import Queue from  "./views/Queue/Queue";
 import Login from "./views/Login/Login";
 import Register from "./views/Register/Register";
@@ -14,6 +15,7 @@ createRoot(document.getElementById('root')).render(
     <Route path="/" element={<Home/>} />
     <Route path="/about" element={<About/>}/>
     <Route path="/services" element={<Services/>}/>
+    <Route path="/myqueue" element={<MyQueue />} />
     <Route path="/queue/:serviceId" element={<Queue />} />
     <Route path="/login" element={<Login/>}/>
     <Route path="/register" element={<Register/>}/>
