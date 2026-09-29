@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import "./Home.css";
 import { getCurrentUser } from "../../util";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 function Home() {
   const [user, setUser] = useState(null);
@@ -108,6 +109,8 @@ function Home() {
         </Link>
 
       </section>
+
+      <Footer />
 
     </div>
   );

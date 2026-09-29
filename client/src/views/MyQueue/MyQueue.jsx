@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import "./MyQueue.css";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 function MyQueue() {
   const navigate = useNavigate();
@@ -141,6 +142,8 @@ function MyQueue() {
         </div>
 
       </div>
+
+      <Footer />
     </div>
   );
 }

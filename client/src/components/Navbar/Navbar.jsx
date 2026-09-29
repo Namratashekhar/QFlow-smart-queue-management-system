@@ -29,12 +29,12 @@ function Navbar() {
             Home
           </Link>
 
-          <Link to="/services" className="nav-link">
-            Services
-          </Link>
-
           <Link to="/about" className="nav-link">
             About
+          </Link>
+
+          <Link to="/services" className="nav-link">
+            Services
           </Link>
 
           {user && (

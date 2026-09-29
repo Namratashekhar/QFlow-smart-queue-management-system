@@ -6,6 +6,7 @@ import restaurant from "./restaurant.jpg";
 import salon from "./salon.jpg";
 import bank from "./bank.jpg";
 import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 function Services() {
 
@@ -99,6 +100,8 @@ function Services() {
         ))}
 
       </section>
+
+      <Footer />
 
     </div>
   );
