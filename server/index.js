@@ -41,7 +41,7 @@ app.post("/services", postService);
 app.get("/services", getServices);
 
 app.post("/queue", postQueue);
-app.get("/queue/:userId", getMyQueue);
+app.get("/myqueue/:userId", getMyQueue);
 app.put("/queue/:queueId/cancel", cancelQueue);
 
 const PORT = process.env.PORT || 8080;

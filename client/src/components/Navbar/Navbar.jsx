@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import "./Navbar.css";
+import logo from "./logo.jpg";
+
 
 function Navbar() {
   const navigate = useNavigate();
@@ -18,9 +20,8 @@ function Navbar() {
 
         {/* Logo */}
         <Link to="/" className="navbar-logo">
-          <div className="logo-icon">Q</div>
-          <span>QFlow</span>
-        </Link>
+         <img src={logo} alt="QFlow Logo" className="logo-image" /> 
+         <span>QFlow</span> </Link>
 
         {/* Navigation Links */}
         <div className="nav-links">
