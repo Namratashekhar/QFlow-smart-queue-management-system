@@ -47,7 +47,6 @@ function MyQueue() {
     fetchMyQueue();
   }, [navigate]);
 
-  /* Loading */
   if (loading) {
     return (
       <div className="myqueue-page">
@@ -61,7 +60,6 @@ function MyQueue() {
     );
   }
 
-  /* No Queue */
   if (!queue) {
     return (
       <div className="myqueue-page">
@@ -86,7 +84,6 @@ function MyQueue() {
     );
   }
 
-  /* Queue Available */
   return (
     <div className="myqueue-page">
       <Navbar />
@@ -131,13 +128,14 @@ function MyQueue() {
             </div>
 
           </div>
-
-          <button
-            className="back-button"
+           <div className="button-container">
+            <button
+            className="button"
             onClick={() => navigate("/services")}
           >
             Back to Services
           </button>
+           </div>
 
         </div>
 

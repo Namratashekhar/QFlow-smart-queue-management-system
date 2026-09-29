@@ -3,8 +3,6 @@
   background-color: #f5faf8;
 }
 
-/* Container */
-
 .myqueue-container {
   width: 90%;
   max-width: 900px;
@@ -18,148 +16,82 @@
   margin-bottom: 30px;
 }
 
-/* Loading */
-
 .loading {
   text-align: center;
   color: #555;
 }
 
-/* Queue Card */
-
 .queue-card {
   background-color: white;
-
   padding: 30px;
-
   border-radius: 10px;
-
   border: 1px solid #ddd;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .queue-card > h2 {
   text-align: center;
-
   color: #05c98a;
-
   margin-bottom: 25px;
 }
 
-/* Queue Number */
-
 .queue-number {
   text-align: center;
-
   background-color: #f5faf8;
-
   padding: 20px;
-
   border-radius: 8px;
-
   margin-bottom: 25px;
 }
 
 .queue-number p {
   margin: 0 0 8px;
-
   color: #555;
 }
 
 .queue-number h3 {
   margin: 0;
-
   font-size: 45px;
-
   color: #12372a;
 }
 
-/* Details */
-
 .queue-details {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 15px;
-
   margin-bottom: 25px;
 }
 
 .detail-box {
   padding: 18px;
-
   background-color: #f5faf8;
-
   border: 1px solid #ddd;
-
   border-radius: 8px;
-
   text-align: center;
 }
 
 .detail-box span {
   display: block;
-
   color: #666;
-
   font-size: 14px;
-
   margin-bottom: 8px;
 }
 
 .detail-box strong {
   color: #12372a;
-
   font-size: 20px;
 }
 
-/* Status */
 
 .status {
   color: #05c98a !important;
-
   text-transform: capitalize;
 }
 
-/* Back Button */
-
-.back-button {
-  display: block;
-
-  margin: auto;
-
-  border: none;
-
-  background-color: #12372a;
-
-  color: white;
-
-  padding: 11px 25px;
-
-  border-radius: 6px;
-
-  cursor: pointer;
-
-  font-size: 14px;
-}
-
-.back-button:hover {
-  background-color: #05e39c;
-}
-
-/* No Queue */
-
 .no-queue {
   background-color: white;
-
   padding: 50px 30px;
-
   text-align: center;
-
   border-radius: 10px;
-
   border: 1px solid #ddd;
 }
 
@@ -169,29 +101,14 @@
 
 .no-queue p {
   color: #666;
-
   margin-bottom: 25px;
 }
 
-.no-queue button {
-  border: none;
-
-  background-color: #05e39c;
-
-  color: white;
-
-  padding: 11px 22px;
-
-  border-radius: 6px;
-
-  cursor: pointer;
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-
-.no-queue button:hover {
-  background-color: #04c98b;
-}
-
-/* Mobile */
 
 @media (max-width: 600px) {
   .myqueue-container {

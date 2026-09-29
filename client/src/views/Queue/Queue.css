@@ -25,21 +25,6 @@
   margin-bottom: 25px;
 }
 
-.join-queue-button {
-  padding: 12px 30px;
-  border: none;
-  border-radius: 8px;
-  background-color: #05e39c;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.join-queue-button:hover {
-  background-color: #03c987;
-}
-
 .join-queue-button:disabled {
   opacity: 0.6;
   cursor: not-allowed;

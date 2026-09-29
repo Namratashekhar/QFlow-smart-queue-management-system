@@ -101,7 +101,7 @@ function Queue() {
 
 
         <button
-          className="join-queue-button"
+          className="button"
           onClick={joinQueue}
           disabled={loading}
         >
