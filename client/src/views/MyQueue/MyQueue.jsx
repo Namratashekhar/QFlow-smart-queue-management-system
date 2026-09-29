@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -12,6 +13,32 @@ function MyQueue() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
+  // CANCEL QUEUE
+  const cancelMyQueue = async () => {
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_API_URL}/queue/${queue._id}/cancel`
+      );
+
+      alert(response.data.message);
+
+      // Remove queue from page
+      setQueue(null);
+
+    } catch (error) {
+      console.log(
+        "Cancel Queue Error:",
+        error.response?.data || error.message
+      );
+
+      alert(
+        error.response?.data?.message ||
+        "Unable to cancel queue"
+      );
+    }
+  };
+
+  // GET MY QUEUE
   useEffect(() => {
     const fetchMyQueue = async () => {
       try {
@@ -29,6 +56,7 @@ function MyQueue() {
         console.log("My Queue Response:", response.data);
 
         setQueue(response.data.queue);
+
       } catch (error) {
         console.log(
           "My Queue Error:",
@@ -39,6 +67,7 @@ function MyQueue() {
           error.response?.data?.message ||
           "Unable to fetch queue"
         );
+
       } finally {
         setLoading(false);
       }
@@ -47,45 +76,67 @@ function MyQueue() {
     fetchMyQueue();
   }, [navigate]);
 
+
+  // LOADING
   if (loading) {
     return (
       <div className="myqueue-page">
+
         <Navbar />
 
         <div className="myqueue-container">
           <h1>My Queue</h1>
           <p className="loading">Loading...</p>
         </div>
+
+        <Footer />
+
       </div>
     );
   }
 
+
+  // NO ACTIVE QUEUE
   if (!queue) {
     return (
       <div className="myqueue-page">
+
         <Navbar />
 
         <div className="myqueue-container">
+
           <h1>My Queue</h1>
 
           <div className="no-queue">
+
             <h2>No Active Queue</h2>
 
             <p>
               {message || "You have not joined any queue yet."}
             </p>
 
-            <button onClick={() => navigate("/services")}>
+            <button
+              className="button"
+              onClick={() => navigate("/services")}
+            >
               View Services
             </button>
+
           </div>
+
         </div>
+
+        <Footer />
+
       </div>
     );
   }
 
+
+  // QUEUE DETAILS
   return (
     <div className="myqueue-page">
+
       <Navbar />
 
       <div className="myqueue-container">
@@ -96,10 +147,15 @@ function MyQueue() {
 
           <h2>{queue.serviceName}</h2>
 
+
           <div className="queue-number">
+
             <p>Your Queue Number</p>
+
             <h3>{queue.queueNumber}</h3>
+
           </div>
+
 
           <div className="queue-details">
 
@@ -108,10 +164,12 @@ function MyQueue() {
               <strong>{queue.currentlyServing}</strong>
             </div>
 
+
             <div className="detail-box">
               <span>People Ahead</span>
               <strong>{queue.peopleAhead}</strong>
             </div>
+
 
             <div className="detail-box">
               <span>Estimated Wait</span>
@@ -120,30 +178,47 @@ function MyQueue() {
               </strong>
             </div>
 
+
             <div className="detail-box">
               <span>Status</span>
+
               <strong className="status">
                 {queue.status}
               </strong>
+
             </div>
 
           </div>
-           <div className="button-container">
+
+
+          <div className="button-container">
+
             <button
-            className="button"
-            onClick={() => navigate("/services")}
-          >
-            Back to Services
-          </button>
-           </div>
+              className="cancel-button"
+              onClick={cancelMyQueue}
+            >
+              Cancel Queue
+            </button>
+
+
+            <button
+              className="button"
+              onClick={() => navigate("/services")}
+            >
+              Back to Services
+            </button>
+
+          </div>
 
         </div>
 
       </div>
 
       <Footer />
+
     </div>
   );
 }
 
 export default MyQueue;
+
