@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import "./Home.css";
 import { getCurrentUser } from "../../util";
 import Navbar from "../../components/Navbar/Navbar";
+import "../../components/Button/Button.css";
+import { Hospital,Utensils,ScissorsLineDashed,Landmark} from 'lucide-react';
 import Footer from "../../components/Footer/Footer";
 
 function Home() {
@@ -38,7 +40,7 @@ function Home() {
             <h3>Welcome Guest! 👋</h3>
           )}
 
-          <Link to="/services" className="home-button">
+          <Link to="/services" className="button">
             Join Queue
           </Link>
         </div>
@@ -83,28 +85,28 @@ function Home() {
         <div className="service-list">
 
           <div className="service-card">
-            <h3>🏥 Hospital</h3>
+            <h3><Hospital />Hospital</h3>
             <p>Manage your hospital queue easily.</p>
           </div>
 
           <div className="service-card">
-            <h3>🍽️ Restaurant</h3>
+            <h3><Utensils /> Restaurant</h3>
             <p>Join restaurant queues online.</p>
           </div>
 
           <div className="service-card">
-            <h3>💇 Salon</h3>
+            <h3><ScissorsLineDashed /> Salon</h3>
             <p>Save time while waiting for your turn.</p>
           </div>
 
           <div className="service-card">
-            <h3>🏦 Bank</h3>
+            <h3><Landmark />Bank</h3>
             <p>Track your banking service queue.</p>
           </div>
 
         </div>
 
-        <Link to="/services" className="view-button">
+        <Link to="/services" className="button">
           View Services
         </Link>
 

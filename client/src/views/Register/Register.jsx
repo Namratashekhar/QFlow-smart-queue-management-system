@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router";
 import "./Register.css";
 import axios from "axios";
+import "../../components/Button/Button.css";
+
 
 function Register() {
 
@@ -125,7 +127,7 @@ function Register() {
 
         <button
           type="submit"
-          className="register-button"
+          className="button"
         >
           Create Account
         </button>

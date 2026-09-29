@@ -39,20 +39,16 @@
   margin: 20px 0;
 }
 
+
 /* Button */
 
 .home-button {
   display: inline-block;
-
   text-decoration: none;
-
   background-color: #05e39c;
   color: white;
-
   padding: 12px 25px;
-
   border-radius: 6px;
-
   font-weight: bold;
 }
 
@@ -60,13 +56,12 @@
   background-color: #04c98b;
 }
 
+
 /* How It Works */
 
 .how-it-works {
   background-color: white;
-
   padding: 60px 20px;
-
   text-align: center;
 }
 
@@ -79,7 +74,6 @@
 .steps {
   max-width: 1000px;
   margin: auto;
-
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -87,13 +81,9 @@
 
 .step {
   background-color: #f5faf8;
-
   padding: 25px;
-
   border-radius: 10px;
-
   width: 250px;
-
   border: 1px solid #ddd;
 }
 
@@ -106,73 +96,73 @@
   line-height: 1.5;
 }
 
+
 /* Services */
 
 .home-services {
   padding: 60px 20px;
-
   text-align: center;
-
   background-color: #f5faf8;
 }
 
 .home-services h2 {
   color: #12372a;
   font-size: 30px;
-
   margin-bottom: 35px;
 }
 
 .service-list {
   max-width: 1000px;
-
-  margin: auto;
-
+  margin: 0 auto 40px;
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 20px;
 }
 
 .service-card {
   background-color: white;
-
   padding: 25px;
-
   border-radius: 10px;
-
   border: 1px solid #ddd;
+  text-align: center;
 }
 
 .service-card h3 {
   color: #12372a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 svg {
+  width: 35px;
+  height: 35px;
 }
 
 .service-card p {
   color: #666;
+  line-height: 1.5;
 }
+
 
 /* View Button */
 
 .view-button {
   display: inline-block;
-
   margin-top: 30px;
-
   text-decoration: none;
-
   background-color: #12372a;
   color: white;
-
   padding: 12px 25px;
-
   border-radius: 6px;
 }
 
 .view-button:hover {
   background-color: #05e39c;
 }
+
 
 /* Responsive */
 
@@ -187,6 +177,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
 
 @media (max-width: 500px) {
 

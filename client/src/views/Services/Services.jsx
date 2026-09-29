@@ -6,6 +6,7 @@ import restaurant from "./restaurant.jpg";
 import salon from "./salon.jpg";
 import bank from "./bank.jpg";
 import Navbar from "../../components/Navbar/Navbar";
+import "../../components/Button/Button.css";
 import Footer from "../../components/Footer/Footer";
 
 function Services() {
@@ -88,7 +89,7 @@ function Services() {
 
               <Link
                 to={`/queue/${service.id}`}
-                className="join-queue-btn"
+                className="button"
               >
                 Join Queue
               </Link>

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
+import "../../components/Button/Button.css";
 import Footer from "../../components/Footer/Footer";
 
 function About() {
@@ -28,7 +29,7 @@ function About() {
             from anywhere.
           </p>
 
-          <Link to="/services" className="about-button">
+          <Link to="/services" className="button">
             Explore Services
           </Link>
 

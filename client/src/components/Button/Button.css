@@ -1,0 +1,31 @@
+.button {
+  background-color: #12372a;
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #04c98b;
+}
+
+.dark-button {
+  background-color: #12372a;
+  color: white;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dark-button:hover {
+  background-color: #05e39c;
+}

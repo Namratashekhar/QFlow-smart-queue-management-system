@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import "./Login.css";
 import { useState } from "react";
 import axios from "axios";
+import "../../components/Button/Button.css";
+
 
 function Login() {
 
@@ -71,7 +73,7 @@ function Login() {
         />
 
         <button
-          className="login-button"
+          className="button"
           onClick={loginUser}
           type="button"
         >
