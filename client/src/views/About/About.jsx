@@ -8,16 +8,11 @@ function About() {
   return (
     <div className="about-page">
 
-      {/* Navbar */}
       <Navbar />
 
-      {/* About Section */}
       <section className="about-section">
-
         <div className="about-content">
-
           <h1>About QFlow</h1>
-
           <p className="about-intro">
             QFlow is a smart queue management system that helps
             people join queues online and save their valuable time.
@@ -37,7 +32,6 @@ function About() {
 
       </section>
 
-      {/* Features */}
       <section className="features-section">
 
         <h2>Why Use QFlow?</h2>
@@ -76,7 +70,6 @@ function About() {
 
       </section>
 
-      {/* Mission */}
       <section className="mission-section">
 
         <h2>Our Mission</h2>

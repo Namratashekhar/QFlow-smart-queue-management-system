@@ -17,10 +17,8 @@ function Home() {
   return (
     <div className="home-page">
 
-      {/* Navbar */}
       <Navbar />
 
-      {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1>Welcome to QFlow</h1>
@@ -46,7 +44,6 @@ function Home() {
         </div>
       </section>
 
-      {/* How It Works */}
       <section className="how-it-works">
 
         <h2>How QFlow Works</h2>
@@ -77,7 +74,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Services */}
       <section className="home-services">
 
         <h2>Our Services</h2>

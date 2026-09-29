@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router";
 import "./Navbar.css";
 import logo from "./logo.png";
 
-
 function Navbar() {
   const navigate = useNavigate();
 
@@ -18,12 +17,10 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
 
-        {/* Logo */}
         <Link to="/" className="navbar-logo">
          <img src={logo} alt="QFlow Logo" className="logo-image" /> 
          <span>QFlow</span> </Link>
 
-        {/* Navigation Links */}
         <div className="nav-links">
           <Link to="/" className="nav-link">
             Home
@@ -44,7 +41,6 @@ function Navbar() {
           )}
         </div>
 
-        {/* Login / Logout */}
         <div className="nav-auth">
           {user ? (
             <button className="logout-btn" onClick={logout}>
