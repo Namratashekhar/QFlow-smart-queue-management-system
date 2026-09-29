@@ -8,7 +8,6 @@ const services = {
 };
 
 
-// JOIN QUEUE
 const postQueue = async (req, res) => {
   try {
 
@@ -28,7 +27,6 @@ const postQueue = async (req, res) => {
       });
     }
 
-    // Find last active queue for this service
     const lastQueue = await Queue.findOne({
       serviceId: serviceId,
       status: {
@@ -82,8 +80,6 @@ const postQueue = async (req, res) => {
   }
 };
 
-
-// GET MY QUEUE
 const getMyQueue = async (req, res) => {
   try {
 
@@ -123,8 +119,6 @@ const getMyQueue = async (req, res) => {
   }
 };
 
-
-// CANCEL QUEUE
 const cancelQueue = async (req, res) => {
   try {
 
@@ -165,11 +159,4 @@ const cancelQueue = async (req, res) => {
   }
 };
 
-
-// EXPORT
-export {
-  postQueue,
-  getMyQueue,
-  cancelQueue
-};
-
+export {postQueue,getMyQueue,cancelQueue};
