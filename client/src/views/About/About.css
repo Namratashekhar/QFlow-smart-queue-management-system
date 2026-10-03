@@ -67,12 +67,18 @@
 }
 
 .mission-section {
+  width: 50%;
   padding: 30px 20px;
+  margin: 50px auto;
+  border-radius: 10px;
   text-align: center;
-  background-color: #12372a;
+  background-color: #3c6858;
 }
 
 .mission-section h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   font-size: 30px;
 }

@@ -13,7 +13,6 @@ function MyQueue() {
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
 
-  // CANCEL QUEUE
   const cancelMyQueue = async () => {
     try {
       const response = await axios.put(
@@ -22,7 +21,6 @@ function MyQueue() {
 
       alert(response.data.message);
 
-      // Remove queue from page
       setQueue(null);
 
     } catch (error) {
@@ -38,7 +36,6 @@ function MyQueue() {
     }
   };
 
-  // GET MY QUEUE
   useEffect(() => {
     const fetchMyQueue = async () => {
       try {
@@ -77,7 +74,6 @@ function MyQueue() {
   }, [navigate]);
 
 
-  // LOADING
   if (loading) {
     return (
       <div className="myqueue-page">
@@ -95,8 +91,6 @@ function MyQueue() {
     );
   }
 
-
-  // NO ACTIVE QUEUE
   if (!queue) {
     return (
       <div className="myqueue-page">
@@ -132,8 +126,6 @@ function MyQueue() {
     );
   }
 
-
-  // QUEUE DETAILS
   return (
     <div className="myqueue-page">
 

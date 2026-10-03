@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import "./About.css";
 import Navbar from "../../components/Navbar/Navbar";
+import {Award} from 'lucide-react';
 import "../../components/Button/Button.css";
 import Footer from "../../components/Footer/Footer";
 
@@ -72,7 +73,7 @@ function About() {
 
       <section className="mission-section">
 
-        <h2>Our Mission</h2>
+        <h2>Our Mission<Award /></h2>
 
         <p>
           Our mission is to make queue management simple,
