@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "./Register.css";
 import axios from "axios";
 import "../../components/Button/Button.css";
 
 
 function Register() {
+
+  const navigate = useNavigate();
 
   const [user, setUser] = useState({
     name: "",
@@ -14,6 +16,7 @@ function Register() {
     password: "",
     confirmPassword: ""
   });
+
 
   const registerUser = async (e) => {
     e.preventDefault();
@@ -36,7 +39,9 @@ function Register() {
       );
 
       console.log("Register response:", response.data);
-      alert("Registration successful!");
+
+      // Registration successful → Login page
+      navigate("/login");
 
     } catch (error) {
 
@@ -49,6 +54,7 @@ function Register() {
       );
     }
   };
+
 
   return (
     <div className="register-page">
