@@ -43,11 +43,11 @@ function Navbar() {
 
         <div className="nav-auth">
           {user ? (
-            <button className="logout-btn" onClick={logout}>
+            <button className="button" onClick={logout}>
               Logout
             </button>
           ) : (
-            <Link to="/login" className="login-btn">
+            <Link to="/login" className="button">
               Login
             </Link>
           )}
